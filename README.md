@@ -6,11 +6,11 @@ Features
 
 Features taken from the provided data:
 
-LTDATA: all features as is
-SAAF: all raw variables + lag variables for the solar angles (sa, sx, sy, sz) of the previous 1-4 hours + monthly aggregates
-DMOP: hourly counts for each subsystem
-EVTF: hourly counts for all events with more than 100 occurances.
-FTL: hourly counts for each type of event + one for the flagcomms. Duration (in minutes) of each event per hour.
+- LTDATA: all features as is
+- SAAF: all raw variables + lag variables for the solar angles (sa, sx, sy, sz) of the previous 1-4 hours + monthly aggregates
+- DMOP: hourly counts for each subsystem
+- EVTF: hourly counts for all events with more than 100 occurances.
+- FTL: hourly counts for each type of event + one for the flagcomms. Duration (in minutes) of each event per hour.
 
 
 Additional features:
@@ -23,15 +23,15 @@ Additional features:
 Models
 ======
 
-* Gradient boosting trees (using xgboost)
+Gradient boosting trees (using xgboost)
   1. dedicated model per powerline (GBT1). This was by far my best performing model.
   2. one huge model, adding the powerlines as a categorical feature (GBT2)
 
-* (Recurent) neural nets (using keras)
+(Recurent) neural nets (using keras)
   1. 4-layer neural network (NN)
   2. 4-layer LSTM feeding sequences of 20 hours (LSTM)
 
-* Ridge regression (from sklearn) (RIDGE)
+Ridge regression (from sklearn) (RIDGE)
 
 
 For eight of the powerlines with low power consumption, I always used the RIDGE model.
